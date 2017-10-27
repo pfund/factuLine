@@ -1,0 +1,42 @@
+<p><a href="#/administration/" style="float: right; padding-right: 20px;">administration</a></p>
+
+<div ng-controller="DatepickerOperationCtrl">
+  <p><a href="#/operations/day/{{dt | date:'dd.MM.yyyy' }}">Entrer les opérations pour aujourd'hui : {{dt | date:'d.M.yyyy' }}</a></p>
+
+    <div style="display:inline-block; min-height:220px;">
+      <div class="well well-sm" ng-model="dt" ng-change="dateChanged()">
+         <datepicker show-weeks="false" starting-day="1"></datepicker>
+      </div>
+    </div>
+
+</div>
+
+<div>
+    <table class="table table-striped table-hover">
+      <thead>
+	      <tr class="info">
+		    <th>Mois</th>
+		    <th>Année</th>
+		    <th class="amount">Montant</th>
+	      	<th class="amount">Montant assist. 1</th>
+	        <th class="amount">Montant assist. 2</th>
+	        <th>Interv. payés</th>
+	        <th>Ass. payés</th>
+	      <tr>
+	  </thead>
+
+	  <tbody>
+	      <tr ng-repeat="monthOperation in allMonthOperations" ng-click="changeLocation('#/operations/day/15.' + monthOperation.month + '.' + monthOperation.year + '?openInsertPanel=true') ">
+	        <td>{{monthOperation.month}}</td>
+	        <td>{{monthOperation.year}}</td>
+	        <td class="amount">{{monthOperation.amount | toFixed : 2}}</td>
+	        <td class="amount">{{monthOperation.assistantOneAmount | toFixed : 2}}</td>
+	        <td class="amount">{{monthOperation.assistantTwoAmount | toFixed : 2}}</td>
+	        <td>{{monthOperation.numberPaymentsRecieved}} / {{monthOperation.numberOperations}}</td>
+	        <td>{{monthOperation.numberAssistantPaid}} / {{monthOperation.numberAssistedOperations}}</td>
+	      </tr>
+	  </tbody>
+      
+    </table>
+</div>
+

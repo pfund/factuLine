@@ -1,0 +1,34 @@
+
+<div ng-controller="DatepickerConsultationCtrl">
+  <p><a href="#/day/{{dt | date:'dd.MM.yyyy' }}">Entrer les consultations pour aujourd'hui : {{dt | date:'d.M.yyyy' }}</a></p>
+
+    <div style="display:inline-block; min-height:220px;">
+      <div class="well well-sm" ng-model="dt" ng-change="dateChanged()">
+         <datepicker show-weeks="false" starting-day="1"></datepicker>
+      </div>
+    </div>
+
+</div>
+
+<div ng-hide="monthsResume">Chargement des données de résumé de consultations mensuels...</div>
+<table class="table table-striped" ng-show="monthsResume">
+  <tr class="info">
+    <th>Mois</th>
+    <th>Année</th>
+    <th class="amount">Total consultation</th>
+    <th class="amount">Moitié prix consultation</th>
+    <th class="amount">Total materiel</th>
+    <th class="amount">Total medicaments</th>
+    <th class="amount">Prix total</th>
+  <tr>
+  <tr ng-repeat="monthResume in monthsResume">
+    <td>{{monthResume.month}}</td>
+    <td>{{monthResume.year}}</td>
+    <td class="amount">{{monthResume.consultationPrice | toFixed : 2}}</td>
+    <td class="amount">{{monthResume.consultationPrice / 2 | toFixed : 2}}</td>
+    <td class="amount">{{monthResume.materialPrice | toFixed : 2}}</td>
+    <td class="amount">{{monthResume.medicamentPrice | toFixed : 2}}</td>
+    <td class="amount">{{monthResume.consultationPrice + monthResume.materialPrice + monthResume.medicamentPrice | toFixed : 2}}</td>
+  </tr>
+</table>
+

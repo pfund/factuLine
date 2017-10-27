@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>factuLine</title>
+  <link rel="stylesheet" href="assets/css/app.css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#/consultations/calendar">Consultations</a></li>
+    <li><a href="#/operations/calendar">Operations</a></li>
+    <li><a href="#/assistances/calendar">Assistances</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="assets/lib/angular/angular.js"></script>
+  <script src="assets/lib/angular/angular-resource.js"></script>
+  <script src="assets/lib/angular/angular-route.js"></script>
+  <script src="app/app.js"></script>
+
+
+  <script src="app/shared/administration/administrationServices.js"></script>
+  <script src="app/shared/administration/administrationControllers.js"></script>
+
+  <script src="app/components/consultations/consultationsServices.js"></script>
+  <script src="app/components/consultations/consultationsControllers.js"></script>
+  <script src="app/components/operations/operationsServices.js"></script>
+  <script src="app/components/operations/operationsControllers.js"></script>
+  <script src="app/components/assistances/assistancesServices.js"></script>
+  <script src="app/components/assistances/assistancesControllers.js"></script>
+ 
+
+  <script src="app/filters.js"></script>
+  <script src="app/directives.js"></script>
+
+  <script src="assets/lib/ui-bootstrap-tpls-0.10.0.js"></script>
+  <script src="assets/lib/moment.min.js"></script>
+</body>
+</html>
