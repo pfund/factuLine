@@ -7,6 +7,13 @@
 
 	<security-constraint>
 		<web-resource-collection>
+			<web-resource-name>not secure</web-resource-name>
+			<url-pattern>/hello.html</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+
+	<security-constraint>
+		<web-resource-collection>
 			<web-resource-name>secure</web-resource-name>
 			<url-pattern>/*</url-pattern>
 		</web-resource-collection>
