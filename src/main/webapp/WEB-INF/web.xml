@@ -13,9 +13,6 @@
 		<auth-constraint>
 			<role-name>line</role-name>
 		</auth-constraint>
-		<user-data-constraint>
-			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-		</user-data-constraint>
 	</security-constraint>
 
 	<login-config>
